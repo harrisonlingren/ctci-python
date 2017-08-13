@@ -42,4 +42,4 @@ g.nodes[8].addAdj(g.nodes[4])
 for node in g.nodes:
     print(node.data, node.visited, node.adjacent)
 
-print('path found: %s' % routeBetweenNodes(g, g.nodes[0], g.nodes[8]))
+print('path found: %s' % routeBetweenNodes(g, g.nodes[0], g.nodes[2]))
