@@ -24,4 +24,4 @@ class Stack(object):
 class Node(object):
     def __init__(self, val):
         self.data = val
-        self.next = Node(None)
+        self.next = None
