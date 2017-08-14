@@ -4,6 +4,8 @@ def englishInt(num):
     tens = ['', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
     orders = ['', '', 'thousand', 'million', 'billion', 'trillion']
 
+    isNegative = (num < 0)
+
     # split number into an array of chunks less than 1000
     def splitIntoChunks(n):
         numChunks = 1
@@ -40,9 +42,10 @@ def englishInt(num):
             return tens[digits[0]] + ' ' + ones[digits[1]]
 
     # build answer from parts
-    englishI = ''
-    c = splitIntoChunks(num)
+
+    c = splitIntoChunks(abs(num))
     order = len(c)
+    englishI = ''
     for chunknum, chunk in c.items():
         d = []
         for c in str(chunk):
@@ -52,6 +55,9 @@ def englishInt(num):
         if order > 1:
             englishI +=  ' ' + orders[order] + ' '
         order -= 1
+
+    if isNegative:
+        englishI = 'negative ' + englishI
 
     return englishI
 
